@@ -1,15 +1,16 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, HfArgumentParser, TrainingArguments, pipeline
+from transformers import AutoTokenizer, pipeline
 
-#model and tokenizer name
+# Model and tokenizer names
 base_model_name = "NousResearch/Llama-2-7b-chat-hf"
-refined_model = "llama-2-7b-mlabonne-enhanced"
+refined_model_name = "llama-2-7b-mlabonne-enhanced"
 
 # Tokenizer
 llama_tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 llama_tokenizer.pad_token = llama_tokenizer.eos_token
-llama_tokenizer.padding_side = "right" 
+llama_tokenizer.padding_side = "right"
 
-refined_model_path = "/content/llamma-2-7b-mlabonne-enhanced"
+# Refined model path
+refined_model_path = refined_model_name
 
 # Generate Text
 query = "뭐하냐"
