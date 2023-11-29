@@ -1,14 +1,13 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, HfArgumentParser, TrainingArguments, pipeline
 
+#model and tokenizer name
+base_model_name = "NousResearch/Llama-2-7b-chat-hf"
+refined_model = "llama-2-7b-mlabonne-enhanced"
 
 # Tokenizer
 llama_tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
 llama_tokenizer.pad_token = llama_tokenizer.eos_token
 llama_tokenizer.padding_side = "right" 
-
-#model and tokenizer name
-base_model_name = "NousResearch/Llama-2-7b-chat-hf"
-refined_model = "llama-2-7b-mlabonne-enhanced"
 
 refined_model_path = "/content/llamma-2-7b-mlabonne-enhanced"
 
